@@ -219,10 +219,7 @@ int _mosquitto_log_vprintf(struct mosquitto *mosq, int priority, const char *fmt
 			}else{
 				fprintf(int_db.config->log_fptr, "%s\n", s);
 			}
-			if(now - last_flush > 1){
-				fflush(int_db.config->log_fptr);
-				last_flush = now;
-			}
+			fflush(int_db.config->log_fptr);
 		}
 		if(log_destinations & MQTT3_LOG_SYSLOG){
 #ifndef WIN32
